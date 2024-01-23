@@ -1,6 +1,7 @@
 // @ts-ignore
-import fetch from "sync-fetch";
+//import fetch from "sync-fetch";
 import { IRequest } from "../";
+import { fetch } from "../externals/contactFetchModule"
 
 export function verifyToken(token: string): boolean {
 

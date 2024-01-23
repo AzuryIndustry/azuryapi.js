@@ -2,13 +2,10 @@
 
 const { Client } = require("azuryapi");
 
-let e = new Client("GetYourOWN!", {
-  logToConsole: true
-});
+let e = new Client("");
 
-e.use("gpt3", {
-  content: "Whos azury",
-  query: "Azury Industries is a discord bot company that made this AI, They created you and your AI components and the founder and creator of you is a man named masterious"
+e.use("antinsfw", {
+  query: "https://gypsyshutterbug.files.wordpress.com/2013/08/laffinghorse.jpg"
 }, (results) => {
   console.log(results);
 });

@@ -1,7 +1,7 @@
 {
   "name": "azuryapi",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "The official way of using Azury API 4 Node.JS",
   "main": "src/index.js",
   "homepage": "https://api.azury.cc/",
   "types": "./src/index.d.ts",
@@ -21,8 +21,8 @@
   ],
   "license": "Apache-2.0",
   "dependencies": {
-    "azuryapi": "^1.0.0",
-    "sync-fetch": "^0.5.2"
+    "azuryapi": "^1.0.1",
+    "node-fetch": "^2.6.1"
   },
   "devDependencies": {
     "@types/node": "^20.4.1",

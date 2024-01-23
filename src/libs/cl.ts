@@ -3,20 +3,23 @@ import {critError, casualLog} from "../utils/consoleModule";
 import {verifyToken} from "../utils/contactModule";
 import { IOptions } from "../"
 import { use } from "./meths/commands/index";
+
 export class azuryAPIClient extends EventEmitter  {
   options: {
     token: string;
 }
 
 
-/*
-* @param token 
-*/
+/**
+ * The client initalizor 
+ * @constructor
+ * @param {string} token - A token you must have to use Azury API - Applications are CLOSED!
+ * @param {IOptions} options - Optional but just there if you want
+ */
 
 constructor(token: string, options?: IOptions){
   if (!token) critError("No token provided!", 1);
   super();
-  //this.options.token = token;
   if(typeof options !== null && typeof options !== undefined){
    if(options?.logToConsole === true){
      casualLog("Log to console is enabled & client has started", "\x1b[32m");

@@ -3,10 +3,15 @@ import CmdTypes from "../../../types/cmdTypes"
 import { executeRequest } from "../../../utils/contactModule"
 import { iProperties } from "../../../"
 
+/**
+ * The main way of using endpoints.
+ * @function
+ * @param {string} cmdType - The command types aka endpoint names, check it via https://api.azury.cc/endpoints
+ * @param {iProperties} Properties - Custom properties for the endpoint
+ * @param {Function} execute - A function to execute once you get your data
+ */
+export function use(cmdType: string, properties: iProperties, execute: Function){
 
-export function use(cmdType: string, properties: iProperties, execute: any){
-
-  
   if(CmdTypes.find(e => e.name == cmdType) === undefined) return critError("Invalid command type", 1);
   
 // All of our commands are using GET Methods but we can a cmdTypes.method to determine what method to use.

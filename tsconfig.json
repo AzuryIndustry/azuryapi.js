@@ -8,8 +8,10 @@
         "noImplicitAny": true,
         "moduleResolution": "node",
         "sourceMap": false,
+        "allowJs": true,
         "outDir": "dist",
         "baseUrl": ".",
+        "removeComments": true,
         "resolveJsonModule": true,
         "declaration": true,
         "skipDefaultLibCheck": true,
@@ -22,7 +24,7 @@
         "src",
         "package.json",
         "readme.md"
-    ],
+, "global.d.ts", "sync.d.ts"    ],
     "exclude": [
         "node_modules",
         ".gitignore"

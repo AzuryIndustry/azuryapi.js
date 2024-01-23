@@ -1,3 +1,4 @@
 export interface Options {
-    logToConsole: boolean
+    logToConsole?: boolean;
+    detailedFetchLogs?: boolean;
 }

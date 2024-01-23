@@ -1,6 +1,4 @@
-
-// @ts-ignore
-import fetch from "sync-fetch";  // Our fetch module doesn't like typescript and doesn't declare it unfortunately...
+import { fetch } from "../externals/contactFetchModule"
 import { ICommand  } from "../";
 
 // Fetch our list
