@@ -1,8 +1,8 @@
 
 
-const { Client } = require("azuryapi");
+const { Client } = require("../src");
 
-let e = new Client("");
+let e = new Client("dffdf");
 
 e.use("antinsfw", {
   query: "https://gypsyshutterbug.files.wordpress.com/2013/08/laffinghorse.jpg"

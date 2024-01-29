@@ -14,7 +14,9 @@ GETs Work
 Posts NOT TESTED
 */
 
+import { critError } from "../utils/consoleModule"
 
+critError
 const Stream = require('stream')
 
 export function serializeHeaders (headers: any) {
@@ -108,7 +110,7 @@ export function deserializeError (fetch: any, name?: any, init?: any) {
       // @ts-ignore
     return new errors[name](...init)
   } else {
-    return new fetch.FetchError(...init)
+    return critError(init, 2)
   }
 }
 

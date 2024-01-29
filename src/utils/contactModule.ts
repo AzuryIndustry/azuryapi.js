@@ -2,6 +2,8 @@
 //import fetch from "sync-fetch";
 import { IRequest } from "../";
 import { fetch } from "../externals/contactFetchModule"
+import { critError } from "./consoleModule";
+
 
 export function verifyToken(token: string): boolean {
 
@@ -10,6 +12,8 @@ export function verifyToken(token: string): boolean {
   // This is very slow as it checks for 
 
 let resp = fetch("https://ts.azury.cc/api/v1/checktoken?apiKey="+token) 
+
+if(typeof resp == null || typeof resp == "undefined") critError("Unable to contact Azury API services", 0);
 
 const data = resp.json();
 
@@ -27,6 +31,9 @@ if(reqProperties?.useThirdParty){
     body: reqProperties?.body || null,
   })
 
+
+if(typeof resp == null || typeof resp == "undefined") critError("Unable to contact Azury API services", 0);
+
 return resp.json()
   
 } else {
@@ -35,6 +42,8 @@ let resp = fetch("https://ts.azury.cc/api/"+`${reqProperties?.versionNumber !== 
       method: reqProperties?.method || "GET",
       body: reqProperties?.body || null,
     })
+
+if(typeof resp == null || typeof resp == "undefined") critError("Unable to contact Azury API services", 0);
   
   return resp.json();
 }

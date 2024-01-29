@@ -1,8 +1,8 @@
 
 
-import { Client } from "azuryapi";
+import { Client } from "../src";
 
-let e = new Client("", {
+let e = new Client("rfdfd", {
   detailedFetchLogs: true
 });
 

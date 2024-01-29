@@ -12,7 +12,11 @@ import { iProperties } from "../../../"
  */
 export function use(cmdType: string, properties: iProperties, execute: Function){
 
-  if(CmdTypes.find(e => e.name == cmdType) === undefined) return critError("Invalid command type", 1);
+  if(typeof CmdTypes == null || typeof CmdTypes == "undefined"){
+    return critError("Unable to contact Azury API servers, please try again later...", 0);
+  };
+
+  if(CmdTypes?.find(e => e.name == cmdType) === undefined) return critError("Invalid command type", 1);
   
 // All of our commands are using GET Methods but we can a cmdTypes.method to determine what method to use.
   let cmdTypeD = CmdTypes.find(e => e.name == cmdType);
