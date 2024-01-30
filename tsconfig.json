@@ -23,8 +23,8 @@
     "include": [
         "src",
         "package.json",
-        "readme.md"
-, "global.d.ts", "sync.d.ts"    ],
+        "Prod_README.md"
+     ],
     "exclude": [
         "node_modules",
         ".gitignore"

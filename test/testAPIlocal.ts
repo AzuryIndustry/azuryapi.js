@@ -1,13 +1,14 @@
 
 
-import { Client } from "../src";
+import { Client as OtherClient } from "../src";
 
-let e = new Client("rfdfd", {
+let e = new OtherClient("e", {
   detailedFetchLogs: true
 });
 
-e.use("antinsfw", {
+let test = e.use("antinsfw", {
   query: "https://gypsyshutterbug.files.wordpress.com/2013/08/laffinghorse.jpg",
-}, (results: any) => {
-  console.log(results);
+  memes: "test"
 });
+
+console.log(test)

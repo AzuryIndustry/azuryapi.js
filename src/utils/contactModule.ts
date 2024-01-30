@@ -13,11 +13,13 @@ export function verifyToken(token: string): boolean {
 
 let resp = fetch("https://ts.azury.cc/api/v1/checktoken?apiKey="+token) 
 
+
+
 if(typeof resp == null || typeof resp == "undefined") critError("Unable to contact Azury API services", 0);
 
 const data = resp.json();
 
-if(data.success == false) return false; 
+if(data.success == false || data.Error) return false; 
  else return true; 
   
 }
@@ -37,8 +39,9 @@ if(typeof resp == null || typeof resp == "undefined") critError("Unable to conta
 return resp.json()
   
 } else {
-  
-let resp = fetch("https://ts.azury.cc/api/"+`${reqProperties?.versionNumber !== null ? reqProperties?.versionNumber : "v1"}`+"/"+url+`${reqProperties?.method == "GET" ? `?apiKey=${reqProperties?.token}` : ""}${reqProperties?.query !== null ? `&query=${reqProperties?.query}` : ""}${reqProperties?.content !== null ? `&content=${reqProperties?.query}` : ""}`, {
+  console.log(reqProperties.customQuery)
+  //${reqProperties.customQuery.map((x) => `&${x.name}=${x.value}`)}
+let resp = fetch("https://ts.azury.cc/api/"+`${reqProperties?.versionNumber !== null ? reqProperties?.versionNumber : "v1"}`+"/"+url+`${reqProperties?.method == "GET" ? `?apiKey=${reqProperties?.token}` : ""}${reqProperties?.query !== null ? `&query=${reqProperties?.query}` : ""}${reqProperties?.content !== null ? `&content=${reqProperties?.query}` : ""}${reqProperties.customQuery.map((e) => {return `&${e.name}=${e.value}`; })}`, {
       method: reqProperties?.method || "GET",
       body: reqProperties?.body || null,
     })

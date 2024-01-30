@@ -1,8 +1,8 @@
 
 
-const { Client } = require("../src");
+const { Client: otherClient } = require("../dist/src");
 
-let e = new Client("dffdf");
+let e = new otherClient("dffdf");
 
 e.use("antinsfw", {
   query: "https://gypsyshutterbug.files.wordpress.com/2013/08/laffinghorse.jpg"
