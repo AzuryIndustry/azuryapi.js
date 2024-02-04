@@ -16,7 +16,6 @@ Posts NOT TESTED
 
 import { critError } from "../utils/consoleModule"
 
-critError
 const Stream = require('stream')
 
 export function serializeHeaders (headers: any) {

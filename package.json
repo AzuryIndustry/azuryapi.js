@@ -1,19 +1,13 @@
 {
   "name": "azuryapi",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "The official way of using Azury API 4 Node.JS",
   "main": "src/index.js",
   "homepage": "https://api.azury.cc/",
   "types": "./src/index.d.ts",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "prepack": "npm run build",
-    "test": "ts-node ./test/testAPIlocal",
-    "test:java": "node ./test/testAPIJSlocal",
-    "test:prod": "ts-node ./test/testAPIProd",
-    "test:java:prod": "node ./test/testAPIJSProd",
-    "lint": "prettier --write --cache . && eslint --cache --fix .",
-    "typecheck": "tsc -p tsconfig.eslint.json"
+    "prepack": "npm run build"
   },
   "author": "AzuryIndustries",
   "files": [
@@ -23,7 +17,7 @@
   ],
   "license": "Apache-2.0",
   "dependencies": {
-    "azuryapi": "^1.0.1",
+    "azuryapi": "^1.0.3",
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {

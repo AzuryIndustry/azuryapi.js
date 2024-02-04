@@ -3,6 +3,6 @@ export interface Command {
     description: string;
     isFree: boolean;
     type: string;
-    optionalQuery: boolean;
     category: string;
+    requiredParams: Array<string>;
 }

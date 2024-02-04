@@ -3,6 +3,8 @@ import {critError, casualLog} from "../utils/consoleModule";
 import {verifyToken} from "../utils/contactModule";
 import { IOptions } from "../"
 import { use } from "./meths/commands/index";
+import find from "./meths/commands/help";
+
 
 export class azuryAPIClient extends EventEmitter  {
   options: {
@@ -26,17 +28,20 @@ constructor(token: string, options?: IOptions){
    } 
   }
   
-  
+  if(!options.skipTokenChecks){
   let tV = verifyToken(token)
   if(tV == false) critError("Token is not valid!", 1);
+  }
   // @ts-ignore
   global.token = token;
   // @ts-ignore
   global.options = options;
-  if(options?.logToConsole == true) console.log("Token is valid!");
+  if(options?.logToConsole == true && !options?.skipTokenChecks) console.log("Token is valid!");
   
 }
 
+/* Commands! */
   use = use
+  find = find;
 
 }

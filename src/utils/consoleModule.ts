@@ -15,5 +15,5 @@ export function critError(errMsg: string, type?: number){
 }
 
 export function casualLog(msg: string, color?: string){
-  console.log(`${color || ""} ${msg}`);
+  console.log(`${color || "\u001b[37m"} ${msg}`);
 }

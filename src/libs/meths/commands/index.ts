@@ -21,25 +21,46 @@ export function use(cmdType: string, properties: iProperties, execute?: Function
 // All of our commands are using GET Methods but we can a cmdTypes.method to determine what method to use.
   let cmdTypeD = CmdTypes.find(e => e.name == cmdType);
 
+  // Check if we contain the parameters we need for a command 
+  let propertyData = Object.entries(properties).map(([key, value]) => { return {name: key, value: value}});
  
+
+  
+
+  if(typeof cmdTypeD.requiredParams !== "undefined" && cmdTypeD.requiredParams !== null){
+    cmdTypeD.requiredParams.forEach((rp) => {
+      if(typeof propertyData.find((prop) => prop.name == rp) == "undefined"){
+        return critError(`You are missing the following parameter in your property: ${rp}! \n Learn more about setting up properties via https://api.azury.cc/endpoints`, 1)
+      }
+    })
+  }
+
+
+
+  // the server gives the required params array and we just confirm and look if we got it
 
   // @ts-ignore
   if(global?.options?.logToConsole == true) console.log("Command "+cmdType+" is now being executed!")
 
-  if(properties?.content == null && cmdTypeD?.optionalQuery == true) return critError("Missing content! Please check the endpoints via here https://api.azury.cc/endpoints", 1);
+
+  /* 
+  
+    Deprecated 
+  
+    Check iProperties in types for reason
+  
+  */
+
+  //if(properties?.content == null && cmdTypeD?.optionalQuery == true) return critError("Missing content! Please check the endpoints via here https://api.azury.cc/endpoints", 1);
    let result = executeRequest(cmdType, {
      versionNumber: "v1",
      useThirdParty: false,
-     method: "GET",
-     query: cmdTypeD?.optionalQuery == false && properties?.query !== null ? properties?.query : cmdTypeD?.optionalQuery == true && properties?.query !== null ? properties?.query : null,
-     content: cmdTypeD?.optionalQuery == true ? properties?.content : null,
+     method: cmdTypeD.type,
      // add custom different queries for commands that require sophisticated or more queries 
-     // This gets the entries of the properties, filters the pre defined queries and maps it out as a object making it good.
-     customQuery: Object.entries(properties).filter(([key]) => key !== "query" && key !== "content").map(([key, value]) => { return {name: key, value: value};}),
+     // This gets the entries of the properties, maps it out as a object making it good.
+     customQuery: Object.entries(properties).map(([key, value]) => { return {name: key, value: value};}),
      // @ts-ignore
-     token: global.token || null,
-     optQuery: cmdTypeD?.optionalQuery,
-     optQueryData: cmdTypeD?.optionalQuery == true ? properties?.query : null,
+     token: global.token || null
    });
 
    if(typeof execute !== null && typeof execute !== "undefined"){

@@ -1,0 +1,19 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "Testing Azury API DO NOT PUBLISH",
+  "main": "testAPIJSLocalProd.js",
+  "scripts": {
+    "test": "ts-node ./testAPILocalSrc",
+    "test:local:java": "node ./testAPIJSlocal",
+    "test:npm": "ts-node ./testAPIProd",
+    "test:npm:java": "node ./testAPIJSProd",
+    "test:local": "ts-node ./testAPILocalProd"
+  },
+  "author": "azuryindustries",
+  "license": "ISC",
+  "dependencies": {
+    "azuryapi": "^1.0.3",
+    "ts-node": "^10.9.2"
+  }
+}

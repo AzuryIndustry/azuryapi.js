@@ -32,7 +32,7 @@ function sendMessage (message: any) {
 
 export function fetch (resource: any, init?: any) { 
     // @ts-ignore
-  if(global.options?.detailedFetchLogs) casualLog("Detailed Logs are enabled! Beware!!!", "\x1b[32m");
+  if(global.options?.detailedFetchLogs) casualLog("Detailed Logs are enabled! Beware!!!");
   
   // 
   const request = []
@@ -47,7 +47,7 @@ export function fetch (resource: any, init?: any) {
   }
 
      // @ts-ignore
-     if(global.options?.detailedFetchLogs) casualLog("Your fetch prequisites \n"+request, "\x1b[32m");
+     if(global.options?.detailedFetchLogs) casualLog("Your fetch prequisites \n"+request);
 
   Object.assign(request[1], init)
 
@@ -71,7 +71,7 @@ export function fetch (resource: any, init?: any) {
       // @ts-ignore  
     if(global.options?.detailedFetchLogs) casualLog("Completed with no problems");
         // @ts-ignore
-        if(global.options?.detailedFetchLogs) casualLog("Your fetch details \n"+sendMessage(request), "\x1b[32m");
+        if(global.options?.detailedFetchLogs) casualLog("Your fetch details \n"+sendMessage(request));
 
     return deserializeResponse(fetch, ...response)
   } else {

@@ -1,6 +1,6 @@
 
 
-const { Client: otherClient } = require("../dist/src");
+const { Client: otherClient } = require("../dist/src");  // This is for te
 
 let e = new otherClient("dffdf");
 

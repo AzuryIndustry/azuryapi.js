@@ -39,9 +39,9 @@ if(typeof resp == null || typeof resp == "undefined") critError("Unable to conta
 return resp.json()
   
 } else {
-  console.log(reqProperties.customQuery)
+  // Really old bad code for custom query.
   //${reqProperties.customQuery.map((x) => `&${x.name}=${x.value}`)}
-let resp = fetch("https://ts.azury.cc/api/"+`${reqProperties?.versionNumber !== null ? reqProperties?.versionNumber : "v1"}`+"/"+url+`${reqProperties?.method == "GET" ? `?apiKey=${reqProperties?.token}` : ""}${reqProperties?.query !== null ? `&query=${reqProperties?.query}` : ""}${reqProperties?.content !== null ? `&content=${reqProperties?.query}` : ""}${reqProperties.customQuery.map((e) => {return `&${e.name}=${e.value}`; })}`, {
+let resp = fetch("https://ts.azury.cc/api/"+`${reqProperties?.versionNumber !== null ? reqProperties?.versionNumber : "v1"}`+"/"+url+`${reqProperties?.method == "GET" ? `?apiKey=${reqProperties?.token}` : ""}${reqProperties.customQuery.map((e) => {return `&${e.name}=${e.value}`; })}`, {
       method: reqProperties?.method || "GET",
       body: reqProperties?.body || null,
     })

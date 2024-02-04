@@ -1,6 +1,17 @@
 # Azury API 4 Node.JS
 ## Azury's Official way of using it's API!
 
+
+Welcome to Azury's official NPM package for using our Web API package!
+Everything is operated on the api servers, this NPM package serves as a middleman for giving your data to the servers and getting data back from the servers.
+It makes everything easier working on projects that you need this API package for!
+
+This NPM package requires no async(hronous) usage so no awaits or asyncs anywhere while using this package
+This NPM package requires a stable connection and some form of technical competence
+
+Got any problems, report them [here](discord.gg/azury)
+
+
 Install here
 
 ```js
@@ -118,7 +129,37 @@ let azuryClient = new AzuryAPI("YourToken", {
 // Get extra details for debugging purposes!
 ```
 
+## Extra commands
+### Find!
+Find details about a command!
+
+Node.JS
+```js
+
+let { Client } = require("azuryapi");
+let azuryClient = new Client("YourToken") // To get one, join our server discord.gg/azury !!!
+
+let findData = azuryClient.find("gpt3");
+
+console.log(findData)
+```
+TypeScript
+```ts
+
+import { Client } from "azuryapi";
+let azuryClient = new Client("YourToken") // To get one, join our server discord.gg/azury !!!
+
+let findData = azuryClient.find("gpt3");
+
+console.log(findData)
+```
+
 ## Changelogs
+
+### 1.0.4
+- Added a find command (Search details of a command).
+- Bug Fixes
+- Code has been minified for better performance and size for those who aren't so fortunate with space or memory.
 ### 1.0.3
 - Custom Query support
 - Allow support of not adding function to the use function.

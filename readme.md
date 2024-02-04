@@ -10,3 +10,6 @@ Have any problems or fixes, make a pull or issue!
 
 API KEYS ARE REQUIRED UNLESS COMMAND IS FOR FREE.
 Get keys [here](https://discord.gg/azury)
+
+## Developer Changes
+- Test commands have been moved to the test folder with its node package settings.
