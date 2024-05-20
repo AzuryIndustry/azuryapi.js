@@ -1,4 +1,4 @@
-# Azury API Open Source
+# Azury API.JS Open Source
 
 ## This is the full open source version!
 
